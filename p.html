@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Organization and Architecture</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(50, 50, 50, 0.1) 10px,
+                rgba(50, 50, 50, 0.1) 20px
+            );
+        }
+
+        header h1 {
+            color: #00ff95;
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 255, 149, 0.2);
+        }
+
+        header p {
+            color: #b0b0b0;
+            font-size: 1.2em;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .component-card {
+            background: linear-gradient(145deg, #1a1a1a, #222);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff95, #00ccff);
+        }
+
+        .component-card h2 {
+            color: #00ff95;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.8em;
+        }
+
+        .key-points {
+            background-color: rgba(0, 255, 149, 0.05);
+            padding: 1.5rem;
+            border-left: 4px solid #00ff95;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .diagram-space {
+            background-color: #1a1a1a;
+            border: 2px dashed #00ff95;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .diagram-space:hover {
+            border-color: #00ccff;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.1);
+        }
+
+        .upload-btn {
+            background: linear-gradient(90deg, #00ff95, #00ccff);
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 149, 0.3);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '▹';
+            color: #00ff95;
+            position: absolute;
+            left: 0;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(0, 255, 149, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 149, 0.4); }
+            100% { box-shadow: 0 0 5px rgba(0, 255, 149, 0.2); }
+        }
+
+        .component-card:hover {
+            animation: glow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>COURSE PROJECT</h1>
+        <p>Core Components & Their Functions</p>
+    </header>
+
+    <div class="container">
+        <div class="component-card">
+            <h2>Arithmetic Logic Unit (ALU)</h2>
+            <div class="key-points">
+                <p>The ALU is the heart of the CPU, responsible for performing:</p>
+                <ul>
+                    <li>Arithmetic operations (addition, subtraction, multiplication, division)</li>
+                    <li>Logical operations (AND, OR, NOT, XOR)</li>
+                    <li>Bit shifting operations</li>
+                    
+                </ul>
+                
+            </div><ul>
+                    <li>N-BIT ALU:
+
+                        N-bit ALU describes an ALU that can operate on operands of size 'n' bits.
+                        Some popular ALUs are 4-bit ALU, 8-bit ALU, 16-bit ALU, 32-bit ALU, etc.</li>
+                </ul>
+            <p>It consists of combinational logic circuits that perform these operations on binary numbers. The ALU takes two operands as input and produces a result based on the control signals it receives from the control unit.</p>
+            <div class="diagram-space">
+                <p>ALU Diagram Space</p>
+                <button class="upload-btn">Upload ALU Diagram</button>
+            </div>
+        </div>
+
+        <div class="component-card">
+            <h2>Registers</h2>
+            <div class="key-points">
+                <p>Registers are high-speed storage locations within the CPU that temporarily hold:</p>
+                <ul>
+                    <li>Data being processed</li>
+                    <li>Intermediate results</li>
+                    <li>Control information</li>
+                </ul>
+            </div>
+            <p>Different types of registers serve different purposes:</p>
+            <ul>
+                <li>General Purpose Registers: Store temporary data during processing</li>
+                <li>Accumulator: Stores results of arithmetic and logical operations</li>
+                <li>Status Register: Contains flags indicating various CPU states</li>
+                <li>Instruction Register: Holds the current instruction being executed</li>
+            </ul>
+            <div class="diagram-space">
+                <p>Registers Diagram Space</p>
+                <button class="upload-btn">Upload Registers Diagram</button>
+            </div>
+        </div>
+
+        <div class="component-card">
+            <h2>Program Counter (PC)</h2>
+            <div class="key-points">
+                <p>The Program Counter is a special register that:</p>
+                <ul>
+                    <li>Holds the memory address of the next instruction to be executed</li>
+                    <li>Automatically increments after each instruction fetch</li>
+                    <li>Can be modified by jump and branch instructions</li>
+                </ul>
+            </div>
+            <p>The Program Counter is essential for sequential program execution and control flow. It works in conjunction with the instruction fetch cycle to ensure proper program execution sequence. When a program starts, the PC is initialized to the starting address of the program, and it updates continuously as the program executes.</p>
+            <div class="diagram-space">
+                <p>Program Counter Diagram Space</p>
+                <button class="upload-btn">Upload PC Diagram</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruction Life Cycle in COA</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: hsla(180, 38%, 73%, 0.656);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px #b2d8d8;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 15px #00ffff; }
+            50% { text-shadow: 0 0 30px #00ffff; }
+        }
+
+        .phase-card {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #8fd7ef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+        }
+
+        h2 {
+            color: #7fb9cc;
+            margin-top: 0;
+            border-bottom: 2px solid #7c969f;
+            padding-bottom: 10px;
+        }
+
+        .register-info {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid #00ffff;
+        }
+
+        .highlighted {
+            color: #00ff7f;
+            font-weight: bold;
+        }
+
+        .note {
+            font-style: italic;
+            color: #87ceeb;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .cycle-diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 191, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instruction Life Cycle</h1>
+
+        <div class="phase-card">
+            <h2>Overview</h2>
+            <p>The instruction cycle (also called fetch-execute cycle) is the basic operational sequence of a computer. It is the process by which a computer retrieves a program instruction from memory, determines what actions the instruction requires, and carries out those actions.</p>
+            <div class="note">Each instruction goes through multiple phases: Fetch, Decode, Execute, and sometimes Memory and Write-back phases.</div>
+        </div>
+
+        <div class="phase-card">
+            <h2>1. Fetch Phase</h2>
+            <p>The first step in the instruction cycle where the CPU retrieves the instruction from memory.</p>
+            <div class="register-info">
+                <p><span class="highlighted">Key Steps:</span></p>
+                <ul>
+                    <li>PC (Program Counter) contains address of next instruction</li>
+                    <li>Address is placed on address bus</li>
+                    <li>Instruction is retrieved from memory</li>
+                    <li>PC is incremented to point to next instruction</li>
+                    <li>Instruction is loaded into IR (Instruction Register)</li>
+                </ul>
+            </div>
+            <div class="note">The fetch phase is common to all instructions regardless of their type.</div>
+        </div>
+
+        <div class="phase-card">
+            <h2>2. Decode Phase</h2>
+            <p>The CPU interprets the instruction and determines what operation is required.</p>
+            <div class="register-info">
+                <p><span class="highlighted">Activities:</span></p>
+                <ul>
+                    <li>Instruction is broken down into opcode and operands</li>
+                    <li>Control unit decodes the opcode</li>
+                    <li>Operand addresses are identified</li>
+                    <li>Required data paths are configured</li>
+                </ul>
+            </div>
+            <div class="note">Modern processors may decode multiple instructions simultaneously using pipelining.</div>
+        </div>
+
+        <div class="phase-card">
+            <h2>3. Execute Phase</h2>
+            <p>The CPU carries out the instruction using the decoded information.</p>
+            <div class="register-info">
+                <p><span class="highlighted">Common Operations:</span></p>
+                <ul>
+                    <li>Arithmetic calculations (ADD, SUB, MUL, DIV)</li>
+                    <li>Logical operations (AND, OR, NOT)</li>
+                    <li>Data movement (MOV, LOAD, STORE)</li>
+                    <li>Program flow control (JUMP, BRANCH)</li>
+                </ul>
+            </div>
+            <div class="note">The ALU (Arithmetic Logic Unit) performs the actual computations during this phase.</div>
+        </div>
+
+        <div class="phase-card">
+            <h2>4. Memory Phase</h2>
+            <p>If required, the CPU accesses memory for data operations.</p>
+            <div class="register-info">
+                <p><span class="highlighted">Types of Memory Access:</span></p>
+                <ul>
+                    <li>Read operation for LOAD instructions</li>
+                    <li>Write operation for STORE instructions</li>
+                    <li>Data transfer between registers and memory</li>
+                </ul>
+            </div>
+            <div class="note">Not all instructions require this phase - register-to-register operations skip it.</div>
+        </div>
+
+        <div class="phase-card">
+            <h2>5. Write-Back Phase</h2>
+            <p>The final phase where results are stored back to registers or memory.</p>
+            <div class="register-info">
+                <p><span class="highlighted">Key Activities:</span></p>
+                <ul>
+                    <li>Results written to destination register</li>
+                    <li>Status flags updated</li>
+                    <li>System state updated if required</li>
+                </ul>
+            </div>
+            <div class="note">This phase ensures that the results of the instruction are properly saved for future use.</div>
+        </div>
+
+        <div class="phase-card">
+            <h2>Special Considerations</h2>
+            <p>Modern processors implement various optimizations to improve instruction cycle efficiency:</p>
+            <div class="register-info">
+                <ul>
+                    <li>Instruction Pipelining: Multiple instructions in different phases simultaneously</li>
+                    <li>Superscalar Execution: Multiple execution units working in parallel</li>
+                    <li>Out-of-Order Execution: Instructions executed in non-sequential order for better performance</li>
+                    <li>Branch Prediction: Anticipating program flow for faster execution</li>
+                </ul>
+            </div>
+            <div class="note">These optimizations significantly improve CPU performance while maintaining the logical sequence of the instruction cycle.</div>
+        </div>
+    </div>
+</body>
+</html>

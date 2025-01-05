@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addressing Modes in COA</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #b283dd;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #8a2be2;
+        }
+
+        .mode-card {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #6981c9;
+            transition: transform 0.3s ease;
+        }
+
+        .mode-card:hover {
+            transform: translateX(10px);
+        }
+
+        h2 {
+            color: #8d9dcb;
+            margin-top: 0;
+            border-bottom: 2px solid #435daa;
+            padding-bottom: 10px;
+        }
+
+        .example {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid #a87cd1;
+        }
+
+        .example code {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .note {
+            font-style: italic;
+            color: #b19cd9;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>~Instruction Format~</h1>
+
+        <div class="mode-card">
+            <h2>1. Immediate Addressing Mode</h2>
+            <p>The operand is directly specified in the instruction itself.</p>
+            <div class="example">
+                <code>MOV AX, 1234H</code><br>
+                <code>ADD AL, 56H</code>
+            </div>
+            <p class="note">Advantage: No memory access required for operand fetch.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>2. Direct Addressing Mode</h2>
+            <p>The instruction contains the actual address of the operand.</p>
+            <div class="example">
+                <code>MOV AX, [1234H]</code><br>
+                <code>ADD AL, [5678H]</code>
+            </div>
+            <p class="note">Used when we know the exact memory location of data.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>3. Register Addressing Mode</h2>
+            <p>The operand is stored in a CPU register.</p>
+            <div class="example">
+                <code>MOV AX, BX</code><br>
+                <code>ADD CX, DX</code>
+            </div>
+            <p class="note">Fastest addressing mode as no memory access is required.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>4. Register Indirect Addressing Mode</h2>
+            <p>Register contains the address where the operand is stored.</p>
+            <div class="example">
+                <code>MOV AX, [BX]</code><br>
+                <code>ADD CX, [SI]</code>
+            </div>
+            <p class="note">Useful for accessing array elements and pointer operations.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>5. Indexed Addressing Mode</h2>
+            <p>The effective address is sum of base address and index register.</p>
+            <div class="example">
+                <code>MOV AX, [BASE + SI]</code><br>
+                <code>ADD BX, [1000H + DI]</code>
+            </div>
+            <p class="note">Commonly used in array operations.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>6. Based Addressing Mode</h2>
+            <p>Similar to indexed, but uses a base register instead.</p>
+            <div class="example">
+                <code>MOV AX, [BX + 1234H]</code><br>
+                <code>ADD CX, [BP + 5678H]</code>
+            </div>
+            <p class="note">Useful in accessing structure members and stack operations.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>7. Based Indexed Addressing Mode</h2>
+            <p>Combines base register, index register, and displacement.</p>
+            <div class="example">
+                <code>MOV AX, [BX + SI + 1234H]</code><br>
+                <code>ADD CX, [BP + DI + 5678H]</code>
+            </div>
+            <p class="note">Most flexible addressing mode, good for complex data structures.</p>
+        </div>
+
+        <div class="mode-card">
+            <h2>8. Relative Addressing Mode</h2>
+            <p>The offset is added to the Program Counter (PC).</p>
+            <div class="example">
+                <code>JMP LABEL</code><br>
+                <code>BNE +12</code>
+            </div>
+            <p class="note">Commonly used in branch and jump instructions.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Page</title>
+    <style>
+        @keyframes glowAndFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+                text-shadow: 0 0 5px #7b00ff;
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+                text-shadow: 0 0 20px #7b00ff, 0 0 30px #7b00ff;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                text-shadow: 0 0 5px #7b00ff;
+            }
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #7b00ff;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            animation: glowAndFloat 2s ease-out forwards;
+            letter-spacing: 3px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h2 {
+            color: #dfd9e4;
+            margin-top: 0;
+        }
+
+        .skill-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SKILLS</h1>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <img src="./images/bootstraplogo.png" width="200" height="200" alt="Bootstrap logo">
+                <h4>Bootstrap</h4>
+            </div>
+            <div class="skill-card">
+                <img src="./images/jslogo.png" width="200" height="200" alt="JavaScript logo">
+                <h4>JavaScript</h4>
+            </div>
+            <div class="skill-card">
+                <img src="./images/csslogo.png" width="200" height="200" alt="CSS logo">
+                <h4>CSS</h4>
+            </div>
+            <div class="skill-card">
+                <img src="./images/githublogo.png"width="200" height="200" alt="GitHub logo">
+                <h4>GitHub</h4>
+            </div>
+            <div class="skill-card">
+                <img src="./images/c++.png" width="200" height="200" alt="C++ logo">
+                <h4>C++</h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
